@@ -28,7 +28,7 @@ def existing_group():
     for i in current_group_list:
         Button(my_frame,text= str(i), command= lambda k=i: choice(k) ).grid(row = 1, column=i)
 
-
+# function to create new group tab
 def new_group_name():
     pop.destroy()
     global pop3

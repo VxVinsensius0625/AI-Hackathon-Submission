@@ -1,3 +1,6 @@
+'''
+
+'''
 from tkinter import *
 from tkinter import messagebox
 import time
@@ -35,39 +38,58 @@ def countdown(h, m, s):
 
 ws = Tk()
 ws.title('Testing')
-ws.geometry('400x200')
+ws.geometry('500x500')
 ws.config(bg='#5FB691')
 
-e = Entry(ws,width=35,borderwidth=5)
-e.pack()
+# e = Entry(ws,width=35,borderwidth=5)
+# e.pack()
+
+# define pop up window for saving tab options
+def clicker():
+    global pop # to be able to access the pop up from the main window
+    pop = Toplevel(ws) # new pop up window
+    pop.title("Timer Ends ")
+    # e = Entry(pop,width=35,borderwidth=5)
+    # e.pack()
+    # e.insert(0,"Existing Group:")
+    my_frame = Frame(pop)
+    my_frame.pack(pady=5)
+    end_label = Label(my_frame, text= "Your Timer ends")
+    end_label.grid(row=0,columnspan=2,pady=40)
+    finish_button = Button(my_frame,text= "Done", command= ws.quit)
+    finish_button.grid(row = 1, column= 0,pady=20)
+    # #old_group.pack(pady=20)
+    # new_group = Button(my_frame,text = "Make a new group", command= new_group_name)
+    # new_group.grid(row = 1, column= 1,pady=20)
+    # #new_group.pack(pady=20)
+
+def timer1(hr, min, s):
+    timer_done = countdown(int(hr),int(min),int(s))
+    # messagebox.showinfo('Information', timer_done)
+    clicker()
+
+q_label = Label(ws, text= "Hour: ")
+q_label.grid(row=1,column=0,pady=40)
+e1 = Entry(ws,width=35,borderwidth=5)
+e1.grid(row=1,column=1,pady=40)
+
+q2_label = Label(ws, text= "Minutes: ")
+q2_label.grid(row=2,column=0,pady=40)
+e2 = Entry(ws,width=35,borderwidth=5)
+e2.grid(row=2,column=1,pady=40)
 
 
-def msg1():
-    messagebox.showinfo('information', 'Hi! You got a prompt.')
-    messagebox.showerror('error', 'Something went wrong!')
-    messagebox.showwarning('warning', 'accept T&C')
-    messagebox.askquestion('Ask Question', 'Do you want to continue?')
-    messagebox.askokcancel('Ok Cancel', 'Are You sure?')
-    messagebox.askyesno('Yes|No', 'Do you want to proceed?')
-    messagebox.askretrycancel('retry', 'Failed! want to try again?')
+q3_label = Label(ws, text= "Seconds: ")
+q3_label.grid(row=3,column=0,pady=40)
+e3 = Entry(ws,width=35,borderwidth=5)
+e3.grid(row=3,column=1,pady=40)
 
-
-def askMe():
-    res = messagebox.askquestion('askquestion', 'Do you want to delete the tab?')
-    if res == 'no':
-        messagebox.askquestion('Response', 'Where do you want to put the tab?')
-    elif res == 'yes':
-        messagebox.showinfo('Response', 'You must be a dog fan.')
-    else:
-        messagebox.showwarning('error', 'Something went wrong!')
-
-
-def timer1(number):
-    num_min = number
-    timer_done = countdown(0,int(num_min),0)
-    messagebox.showinfo('Information', timer_done)
-
-
-mybutton = Button(ws, text='start countdown', command=lambda: timer1( e.get() ) ).pack(pady=50)
+mybutton = Button(ws, text='start countdown', command=lambda: timer1( e1.get(),  e2.get(), e3.get()) )
+mybutton.grid(row=4,columnspan=3,pady=40)
 
 ws.mainloop()
+
+'''
+Reference:
+https://www.udacity.com/blog/2021/09/create-a-timer-in-python-step-by-step-guide.html 
+'''
