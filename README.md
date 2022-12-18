@@ -13,3 +13,5 @@ Problem: Existing tab management apps don’t address the root issue of FOMO. Cl
 Solution: Timed color cues and prompting, and an ability to link your tabs by group help reduce the tabs you keep open without losing the relevant stuff. 
 
 Demoed in Figma and Python.
+
+Youtube link: https://www.youtube.com/watch?v=YBqgBVAeFn4 
