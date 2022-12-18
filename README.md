@@ -1,7 +1,11 @@
 # AI-Hackathon-Submission
-Submission for AI Hackathon
+
+Submission for December 2022 AI Hackathon
+
 Group Member Name: 
+
 Vinsensius, vxvinsen@uw.edu
+
 Maya, mayancv@gmail.com
 
 We designed a browser extension for tab management.
